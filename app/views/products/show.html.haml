@@ -1,0 +1,22 @@
+=render :partial => 'shared/header'
+#body
+  .container
+  .mycontainer
+    %span.box1
+      .row
+        .col-md-6
+          = image_tag @product.image_was.present? ? @product.image_was : ""
+    %span.box1.box2
+      %h2= @product.title
+      %br
+      %h2= @product.description
+      %br
+      %h3= @product.image
+      %br
+      %h2= @product.brand
+      %br
+      %h2= @product.manufacturer
+      %br
+      %h2= @product.model
+      %br
+      %h2= @product.price

@@ -1,0 +1,15 @@
+=render :partial => 'shared/header'
+%h1 Products
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Price
+  - @products.each do |product|
+    %tr
+      %td= product.title
+      %td= product.description
+      %td= product.price
+      %td= link_to 'Show', product_path(product)
+      %td= link_to 'Edit', edit_product_path(product)
+      %td= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?' }

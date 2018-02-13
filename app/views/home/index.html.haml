@@ -1,0 +1,21 @@
+=render :partial => 'shared/header'
+.tab-pane
+  .container
+    - if user_signed_in?
+      %br
+      = link_to 'Add product', new_product_path(@product), class: "btn btn-primary"
+      %br
+
+      .row
+        .span4
+        - @products.each do |product|
+          %br
+          .card{:style => "width: 20rem;"}
+            -#%img.card-img-top{:alt => "Card image cap", :src => "..."}/
+            .card-block
+              %h4= product.title
+              %p.card-text= product.description
+              %h4= product.price
+              -#.progress
+              -#  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "50", "aria-valuenow" => "25", :role => "progressbar"}
+              = link_to 'More details', product_path(product), class: "btn btn-primary"
